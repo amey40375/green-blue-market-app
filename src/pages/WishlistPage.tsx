@@ -8,30 +8,33 @@ const WishlistPage = () => {
   const wishlistItems = [
     {
       id: '1',
-      name: 'iPhone 14 Pro Max 256GB Space Black',
-      price: 15999000,
+      nama: 'iPhone 14 Pro Max 256GB Space Black',
+      harga: 15999000,
       originalPrice: 18999000,
-      image: '/placeholder.svg',
+      foto_url: '/placeholder.svg',
+      kategori: 'elektronik',
       rating: 4.8,
       sold: 1500,
-      discount: 16,
+      diskon: 16,
       badge: 'Favorit'
     },
     {
       id: '2',
-      name: 'Nike Air Jordan 1 Mid Chicago',
-      price: 2099000,
+      nama: 'Nike Air Jordan 1 Mid Chicago',
+      harga: 2099000,
       originalPrice: 2399000,
-      image: '/placeholder.svg',
+      foto_url: '/placeholder.svg',
+      kategori: 'fashion',
       rating: 4.9,
       sold: 2340,
-      discount: 12
+      diskon: 12
     },
     {
       id: '3',
-      name: 'MacBook Air M2 13" 256GB Silver',
-      price: 18999000,
-      image: '/placeholder.svg',
+      nama: 'MacBook Air M2 13" 256GB Silver',
+      harga: 18999000,
+      foto_url: '/placeholder.svg',
+      kategori: 'elektronik',
       rating: 4.8,
       sold: 567
     }

@@ -30,23 +30,25 @@ const SearchPage = () => {
   const searchResults = [
     {
       id: '1',
-      name: 'iPhone 14 Pro Max 256GB Space Black',
-      price: 15999000,
+      nama: 'iPhone 14 Pro Max 256GB Space Black',
+      harga: 15999000,
       originalPrice: 18999000,
-      image: '/placeholder.svg',
+      foto_url: '/placeholder.svg',
+      kategori: 'elektronik',
       rating: 4.8,
       sold: 1500,
-      discount: 16
+      diskon: 16
     },
     {
       id: '2',
-      name: 'iPhone 13 Pro 128GB Blue',
-      price: 12999000,
+      nama: 'iPhone 13 Pro 128GB Blue',
+      harga: 12999000,
       originalPrice: 14999000,
-      image: '/placeholder.svg',
+      foto_url: '/placeholder.svg',
+      kategori: 'elektronik',
       rating: 4.7,
       sold: 890,
-      discount: 13
+      diskon: 13
     }
   ];
 

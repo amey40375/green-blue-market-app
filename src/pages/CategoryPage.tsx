@@ -26,58 +26,64 @@ const CategoryPage = () => {
   const products = [
     {
       id: '1',
-      name: 'iPhone 14 Pro Max 256GB Space Black Premium',
-      price: 15999000,
+      nama: 'iPhone 14 Pro Max 256GB Space Black Premium',
+      harga: 15999000,
       originalPrice: 18999000,
-      image: '/placeholder.svg',
+      foto_url: '/placeholder.svg',
+      kategori: 'elektronik',
       rating: 4.8,
       sold: 1500,
-      discount: 16,
+      diskon: 16,
       badge: 'Terlaris'
     },
     {
       id: '2',
-      name: 'Samsung Galaxy S23 Ultra 512GB Phantom Black',
-      price: 14500000,
+      nama: 'Samsung Galaxy S23 Ultra 512GB Phantom Black',
+      harga: 14500000,
       originalPrice: 16999000,
-      image: '/placeholder.svg',
+      foto_url: '/placeholder.svg',
+      kategori: 'elektronik',
       rating: 4.7,
       sold: 890,
-      discount: 15
+      diskon: 15
     },
     {
       id: '3',
-      name: 'Nike Air Jordan 1 Mid Chicago Red White',
-      price: 2099000,
+      nama: 'Nike Air Jordan 1 Mid Chicago Red White',
+      harga: 2099000,
       originalPrice: 2399000,
-      image: '/placeholder.svg',
+      foto_url: '/placeholder.svg',
+      kategori: 'fashion',
       rating: 4.9,
       sold: 2340,
-      discount: 12
+      diskon: 12
     },
     {
       id: '4',
-      name: 'MacBook Air M2 13" 256GB Silver Space Gray',
-      price: 18999000,
-      image: '/placeholder.svg',
+      nama: 'MacBook Air M2 13" 256GB Silver Space Gray',
+      harga: 18999000,
+      foto_url: '/placeholder.svg',
+      kategori: 'elektronik',
       rating: 4.8,
       sold: 567
     },
     {
       id: '5',
-      name: 'Sony WH-1000XM4 Wireless Noise Canceling',
-      price: 4299000,
+      nama: 'Sony WH-1000XM4 Wireless Noise Canceling',
+      harga: 4299000,
       originalPrice: 4999000,
-      image: '/placeholder.svg',
+      foto_url: '/placeholder.svg',
+      kategori: 'elektronik',
       rating: 4.6,
       sold: 1890,
-      discount: 14
+      diskon: 14
     },
     {
       id: '6',
-      name: 'Adidas Ultraboost 22 Running Shoes Black',
-      price: 2799000,
-      image: '/placeholder.svg',
+      nama: 'Adidas Ultraboost 22 Running Shoes Black',
+      harga: 2799000,
+      foto_url: '/placeholder.svg',
+      kategori: 'fashion',
       rating: 4.7,
       sold: 743
     }
