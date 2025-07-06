@@ -1,9 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const SplashScreen = () => {
-  const navigate = useNavigate();
   const [showLogo, setShowLogo] = useState(false);
   const [showSlogan, setShowSlogan] = useState(false);
 
@@ -18,17 +16,11 @@ const SplashScreen = () => {
       setShowSlogan(true);
     }, 1500);
 
-    // Navigate to home after splash
-    const navigationTimer = setTimeout(() => {
-      navigate('/');
-    }, 3500);
-
     return () => {
       clearTimeout(logoTimer);
       clearTimeout(sloganTimer);
-      clearTimeout(navigationTimer);
     };
-  }, [navigate]);
+  }, []);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-[#002D62] via-[#004080] to-[#00B894] overflow-hidden">
