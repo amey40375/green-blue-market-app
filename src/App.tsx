@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import SplashScreen from "./components/SplashScreen";
 import HomePage from "./pages/HomePage";
@@ -16,11 +16,93 @@ import OrdersPage from "./pages/OrdersPage";
 import NotificationsPage from "./pages/NotificationsPage";
 import ChatPage from "./pages/ChatPage";
 import SearchPage from "./pages/SearchPage";
+import AuthPage from "./pages/AuthPage";
 import { CartProvider } from "./contexts/CartContext";
-import { UserProvider } from "./contexts/UserContext";
+import { UserProvider, useUser } from "./contexts/UserContext";
 import BottomNavigation from "./components/BottomNavigation";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
+
+const AppContent = () => {
+  const { user, loading } = useUser();
+
+  if (loading) {
+    return <SplashScreen />;
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Routes>
+        <Route path="/auth" element={
+          user ? <Navigate to="/" replace /> : <AuthPage />
+        } />
+        
+        <Route path="/" element={
+          <ProtectedRoute>
+            <HomePage />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/category/:id" element={
+          <ProtectedRoute>
+            <CategoryPage />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/product/:id" element={
+          <ProtectedRoute>
+            <ProductPage />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/cart" element={
+          <ProtectedRoute>
+            <CartPage />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/profile" element={
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/wishlist" element={
+          <ProtectedRoute>
+            <WishlistPage />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/orders" element={
+          <ProtectedRoute>
+            <OrdersPage />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/notifications" element={
+          <ProtectedRoute>
+            <NotificationsPage />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/chat" element={
+          <ProtectedRoute>
+            <ChatPage />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/search" element={
+          <ProtectedRoute>
+            <SearchPage />
+          </ProtectedRoute>
+        } />
+      </Routes>
+      
+      {user && <BottomNavigation />}
+    </div>
+  );
+};
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);
@@ -45,21 +127,7 @@ const App = () => {
             <Toaster />
             <Sonner />
             <BrowserRouter>
-              <div className="min-h-screen bg-gray-50 pb-16">
-                <Routes>
-                  <Route path="/" element={<HomePage />} />
-                  <Route path="/category/:id" element={<CategoryPage />} />
-                  <Route path="/product/:id" element={<ProductPage />} />
-                  <Route path="/cart" element={<CartPage />} />
-                  <Route path="/profile" element={<ProfilePage />} />
-                  <Route path="/wishlist" element={<WishlistPage />} />
-                  <Route path="/orders" element={<OrdersPage />} />
-                  <Route path="/notifications" element={<NotificationsPage />} />
-                  <Route path="/chat" element={<ChatPage />} />
-                  <Route path="/search" element={<SearchPage />} />
-                </Routes>
-                <BottomNavigation />
-              </div>
+              <AppContent />
             </BrowserRouter>
           </TooltipProvider>
         </CartProvider>
